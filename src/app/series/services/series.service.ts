@@ -8,7 +8,7 @@ import { Serie, SerieScore } from '../types/series.types';
 })
 export class SeriesService {
 
-  private apiUrl: string = 'https://api.tvmaze.com/search/shows?q=game of';
+  private apiUrl: string = 'https://api.tvmaze.com/search/shows?q=breaking';
 
   constructor(private http: HttpClient) {}
 

@@ -8,11 +8,21 @@
               <div class="card-body">
                 <div class="row">
                   <div class="col-md-12 text-center">
-                    <h4 class="text-uppercase"> {{serie.show.name}} </h4>
-                    <span> Plan </span>
-                    <hr class="line-primary" />
+                    <h4 class="text-uppercase">{{ serie.show.name }}</h4>
                   </div>
                 </div>
+                <div class="row">
+                  <div class="col-md-12 text-center">
+                    <img
+                      alt="Raised image"
+                      class="img-fluid rounded shadow-lg"
+                      [src]="serie.show.image?.original"
+                      style="width: 200px"
+                    >
+                    <!-- <h1> {{serie.show.rating.average}} </h1> -->
+                  </div>
+                </div>
+                <hr class="line-warning" />
                 <div class="row">
                   <ul class="list-group">
                     <li class="list-group-item">50 messages</li>
@@ -26,55 +36,9 @@
               </div>
             </div>
           </div>
-          <!-- <div class="col-md-4">
-            <div class="card card-coin">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-12 text-center">
-                    <h4 class="text-uppercase">Light Coin</h4>
-                    <span> Plan </span>
-                    <hr class="line-primary" />
-                  </div>
-                </div>
-                <div class="row">
-                  <ul class="list-group">
-                    <li class="list-group-item">50 messages</li>
-                    <li class="list-group-item">100 emails</li>
-                    <li class="list-group-item">24/7 Support</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="card-footer text-center">
-                <button class="btn btn-primary btn-simple">Get plan</button>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card card-coin">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-12 text-center">
-                    <h4 class="text-uppercase">Light Coin</h4>
-                    <span> Plan </span>
-                    <hr class="line-primary" />
-                  </div>
-                </div>
-                <div class="row">
-                  <ul class="list-group">
-                    <li class="list-group-item">50 messages</li>
-                    <li class="list-group-item">100 emails</li>
-                    <li class="list-group-item">24/7 Support</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="card-footer text-center">
-                <button class="btn btn-primary btn-simple">Get plan</button>
-              </div>
-            </div>
-          </div> -->
         </div>
       </tab>
-      <tab heading="Table">
+      <tab *ngIf="showTable" heading="Table" onclick="test($event)">
         <div class="row">
           <table class="table">
             <thead>
@@ -88,9 +52,9 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr *ngFor="let serie of series">
                 <td class="text-center">1</td>
-                <td>Andrew Mike</td>
+                <td> {{ serie.show.name }} </td>
                 <td>Develop</td>
                 <td>2013</td>
                 <td class="text-right">&euro; 99,225</td>
@@ -113,36 +77,6 @@
                     type="button"
                     rel="tooltip"
                     class="btn btn-danger btn-sm btn-icon"
-                  >
-                    <i class="tim-icons icon-simple-remove"></i>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td class="text-center">2</td>
-                <td>John Doe</td>
-                <td>Design</td>
-                <td>2012</td>
-                <td class="text-right">&euro; 89,241</td>
-                <td class="td-actions text-right">
-                  <button
-                    type="button"
-                    rel="tooltip"
-                    class="btn btn-info btn-sm btn-round btn-icon"
-                  >
-                    <i class="tim-icons icon-single-02"></i>
-                  </button>
-                  <button
-                    type="button"
-                    rel="tooltip"
-                    class="btn btn-success btn-sm btn-round btn-icon"
-                  >
-                    <i class="tim-icons icon-settings-gear-63"></i>
-                  </button>
-                  <button
-                    type="button"
-                    rel="tooltip"
-                    class="btn btn-danger btn-sm btn-round btn-icon"
                   >
                     <i class="tim-icons icon-simple-remove"></i>
                   </button>

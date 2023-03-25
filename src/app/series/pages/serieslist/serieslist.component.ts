@@ -20,7 +20,8 @@ export class SerieslistComponent implements OnInit {
     //AQUI NO IMPRIME EL VALOR DE this.series luego de asignarle el valor
     //TODO: splice for 6 results, but apperance got at first
     this.seriesService.getAllSeries().subscribe((series) => {
-      console.log("series", series);
+      console.log({series});
+      // const series
       // console.log("series2", this.series);
       return (this.series = series);
     });

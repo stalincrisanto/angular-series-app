@@ -7,11 +7,22 @@ import { SerieScore } from '../../../types/series.types';
 })
 export class TabComponent implements OnInit {
 
+  showTable: boolean= true;
+
   @Input() series;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onImageError(event){
+    console.log("event", {event});
+    
+  }
+
+  test(event){
+    console.log("evendsadsadt");
   }
 
 }
