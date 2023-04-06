@@ -1,0 +1,38 @@
+<div class="container">
+  <!-- <div class="row">
+        <div class="card">
+            <h1>Probando</h1>
+        </div>
+    </div> -->
+  <div class="row justify-content-md-center">
+    <div class="text-center col-md-12 col-lg-8">
+      <h1 class="title">{{ serie.name }}</h1>
+      <h4 class="description">
+        <b>Lenguage: </b> <i>{{ serie?.language }}</i>
+      </h4>
+      <h4 class="description">
+        <b>Rating: </b> <i>{{ serie?.rating.average }}</i>
+      </h4>
+      <br />
+    </div>
+  </div>
+
+  <section>
+    <img *ngFor="let image of images" [src]="image.resolutions.medium.url" />
+  </section>
+
+  <br/>
+  <div class="row justify-content-md-center">
+    <div class="text-center col-md-12 col-lg-8">
+      <h4 class="description">
+        <b>Summary: </b> {{ serie?.summary }}
+      </h4>
+      <br />
+    </div>
+  </div>
+  <!-- <div class="card">
+        <div class="row">
+            <h1>DETALLES DE LA SERIE</h1>
+        </div>
+    </div> -->
+</div>

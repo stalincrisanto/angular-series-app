@@ -9,6 +9,7 @@ import { RegisterpageComponent } from "./pages/examples/registerpage/registerpag
 import { LandingpageComponent } from "./pages/examples/landingpage/landingpage.component";
 import { SerieslistComponent } from './series/pages/serieslist/serieslist.component';
 import { EpisodesComponent } from './series/pages/episodes/episodes.component';
+import { SeriedetailComponent } from './series/pages/seriedetail/seriedetail.component';
 
 const routes: Routes = [
   { path: "", component: IndexComponent, pathMatch: "full" },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: "register", component: RegisterpageComponent },
   { path: "landing", component: LandingpageComponent },
   { path: "series", component: SerieslistComponent },
+  { path: "serie/:serieCode", component: SeriedetailComponent },
   { path: "episodes", component: EpisodesComponent },
   { path: "**", redirectTo: "" },
 ];

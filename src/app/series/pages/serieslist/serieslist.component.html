@@ -1,22 +1,27 @@
 <div class="container">
-  <!-- {{ series | json }} -->
-    <div class="row">
-      <div class="col-sm-6 col-lg-3">
-        <div class="form-group">
-          <input
-            class="form-control"
-            placeholder="Search character"
-            type="text"
-            value=""
-          />
-        </div>
+  <!-- TODO: change this to other component -->
+  <div class="row d-flex justify-content-between">
+    <div class="col-sm-6 col-lg-3">
+      <div class="form-group">
+        <input
+          class="form-control"
+          placeholder="Search character"
+          type="text"
+          value=""
+        />
       </div>
     </div>
-    <br />
-    <div class="row">
-      <div class="col-md-10 ml-0 col-xl-12 mr-auto">
-        <app-tab [series]="series"></app-tab>
+    <div class="d-flex flex-row mr-3">
+      <label class="col-sm-6 col-form-label">Order by: </label>
+      <div class="form-group">
+        <button class="btn btn-info btn-sm mr-1">Premiere</button>
       </div>
     </div>
   </div>
-  
+  <br />
+  <div class="row">
+    <div class="col-md-10 ml-0 col-xl-12 mr-auto">
+      <app-tab [series]="series"></app-tab>
+    </div>
+  </div>
+</div>

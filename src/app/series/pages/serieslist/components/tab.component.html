@@ -1,6 +1,7 @@
 <div class="card">
   <div class="card-header">
     <tabset class="nav-tabs-danger">
+      <!-- LIST -->
       <tab heading="List">
         <div class="row">
           <div class="col-md-4" *ngFor="let serie of series">
@@ -8,7 +9,7 @@
               <div class="card-body">
                 <div class="row">
                   <div class="col-md-12 text-center">
-                    <h4 class="text-uppercase">{{ serie.show.name }}</h4>
+                    <h3 class="text-uppercase">{{ serie.show.name }}</h3>
                   </div>
                 </div>
                 <div class="row">
@@ -18,72 +19,73 @@
                       class="img-fluid rounded shadow-lg"
                       [src]="serie.show.image?.original"
                       style="width: 200px"
-                    >
-                    <!-- <h1> {{serie.show.rating.average}} </h1> -->
+                    />
                   </div>
                 </div>
                 <hr class="line-warning" />
                 <div class="row">
                   <ul class="list-group">
-                    <li class="list-group-item">50 messages</li>
-                    <li class="list-group-item">100 emails</li>
-                    <li class="list-group-item">24/7 Support</li>
+                    <li class="list-group-item">
+                      <h4>
+                        Premiere: {{ serie.show.premiered.substring(0, 4) }}
+                      </h4>
+                    </li>
                   </ul>
                 </div>
               </div>
-              <div class="card-footer text-center">
-                <button class="btn btn-primary btn-simple">Get plan</button>
+              <div
+                class="card-footer text-center"
+                style="padding-top: 5px !important"
+              >
+                <button class="btn btn-primary btn-simple"><a [routerLink]="['/serie',serie.show.id]">More info</a></button>
               </div>
             </div>
           </div>
         </div>
       </tab>
+      <!-- TABLE -->
       <tab *ngIf="showTable" heading="Table" onclick="test($event)">
         <div class="row">
-          <table class="table">
-            <thead>
-              <tr>
-                <th class="text-center">#</th>
-                <th>Name</th>
-                <th>Job Position</th>
-                <th>Since</th>
-                <th class="text-right">Salary</th>
-                <th class="text-right">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let serie of series">
-                <td class="text-center">1</td>
-                <td> {{ serie.show.name }} </td>
-                <td>Develop</td>
-                <td>2013</td>
-                <td class="text-right">&euro; 99,225</td>
-                <td class="td-actions text-right">
-                  <button
-                    type="button"
-                    rel="tooltip"
-                    class="btn btn-info btn-sm btn-icon"
-                  >
-                    <i class="tim-icons icon-single-02"></i>
-                  </button>
-                  <button
-                    type="button"
-                    rel="tooltip"
-                    class="btn btn-success btn-sm btn-icon"
-                  >
-                    <i class="tim-icons icon-settings-gear-63"></i>
-                  </button>
-                  <button
-                    type="button"
-                    rel="tooltip"
-                    class="btn btn-danger btn-sm btn-icon"
-                  >
-                    <i class="tim-icons icon-simple-remove"></i>
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="col-md-12">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="text-center">Image</th>
+                  <th>Name</th>
+                  <th>Genres</th>
+                  <th>Start</th>
+                  <th class="text-right">End</th>
+                  <th class="text-center">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let serie of series">
+                  <td class="text-center">
+                    <img
+                      alt="Raised image"
+                      class="img-fluid rounded shadow-lg"
+                      [src]="serie.show.image?.original"
+                      style="width: 60px"
+                    />
+                  </td>
+                  <td>{{ serie.show.name }}</td>
+                  <td>{{ serie.show.genres.join(", ") }}</td>
+                  <td>{{ serie.show.premiered.substring(0, 4) }}</td>
+                  <td class="text-right">
+                    {{ serie.show.ended?.substring(0, 4) }}
+                  </td>
+                  <td class="td-actions text-center">
+                    <button
+                      class="btn btn-info btn-sm btn-round mr-1"
+                      type="button"
+                    >
+                      <i class="tim-icons icon-simple-add"> </i> More Info
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </tab>
     </tabset>
