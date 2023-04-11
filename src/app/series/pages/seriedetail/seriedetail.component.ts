@@ -12,6 +12,9 @@ import { Image } from "../../types/images.types";
 })
 export class SeriedetailComponent implements OnInit {
 
+  max = 10;
+  rating: number = 0;
+  isReadonly = true;
   serie: Serie;
   images: Image[];
 
@@ -40,6 +43,7 @@ export class SeriedetailComponent implements OnInit {
         this.serie = serie;
         console.log("images", images.slice(0,5));
         this.images = images.slice(0,5);
+        this.rating = serie?.rating?.average||0;
       });
   }
 
