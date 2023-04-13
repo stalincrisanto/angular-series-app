@@ -1,3 +1,5 @@
+import { Embedded } from "./characters.type";
+
 export interface SerieScore {
   score: number;
   show: Serie;
@@ -27,6 +29,7 @@ export interface Serie {
   summary: string;
   updated: number;
   _links: Links;
+  _embedded: Embedded
 }
 
 export interface Links {

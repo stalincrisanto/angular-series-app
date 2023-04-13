@@ -1,3 +1,4 @@
+<!-- TODO: refactor to separate components -->
 <div class="container">
   <!-- HEADER -->
   <div class="row justify-content-md-center">
@@ -93,9 +94,11 @@
   <br />
   <br />
 
+  <!-- GENRES -->
   <div class="row justify-content-md-center">
     <div class="d-flex col-md-12 col-lg-10">
-      <h4 style="margin-bottom: 5px;">Genres</h4>&nbsp;&nbsp;&nbsp;
+      <h4 style="margin-bottom: 5px">Genres</h4>
+      &nbsp;&nbsp;&nbsp;
       <span
         class="badge badge-pill badge-primary"
         style="margin-right: 8px"
@@ -108,13 +111,55 @@
     </div>
   </div>
 
-  <br/>
+  <br />
 
   <!-- SUMMARY -->
   <div class="row justify-content-md-center">
     <div class="col-md-12 col-lg-10">
       <h4 class="description"><b>Summary: </b> {{ serie?.summary }}</h4>
       <br />
+    </div>
+  </div>
+
+  <!-- TOGGLE BUTTONS -->
+  <div class="row justify-content-md-center">
+    <div class="col-md-12 col-lg-10">
+      <button
+        type="button"
+        class="btn btn-primary"
+        (click)="isCollapsedCharacters = !isCollapsedCharacters"
+        [attr.aria-expanded]="!isCollapsedCharacters"
+        aria-controls="characters"
+        tooltip="Push me!"
+      >
+        Characters
+      </button>
+      <hr />
+      <div id="characters" [collapse]="isCollapsedCharacters">
+        <div class="well well-lg card card-block card-header">
+          <div
+            class="row d-flex flex-wrap justify-content-between"
+          >
+            <div class="col-md-6 p-4" *ngFor="let character of characters">
+              <div class="d-flex">
+                <img
+                  alt="Circle image"
+                  class="img-fluid rounded-circle shadow"
+                  [src]="character?.character?.image?.medium"
+                  style="width: 100px"
+                />
+                <div class="description ml-3 mt-3">
+                  <h4 class="info-title"><b>{{character?.character?.name}}</b> </h4>
+                  <p>Actor/Actress: {{character?.person?.name}} <br/>
+                  Country: {{character?.person?.country?.name}} <br/>
+                  Birthday: {{character?.person?.birthday}} 
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -9,6 +9,8 @@ import { TabComponent } from "./pages/serieslist/components/tab.components";
 import { ProgressbarModule } from "ngx-bootstrap/progressbar";
 import { SeriedetailComponent } from "./pages/seriedetail/seriedetail.component";
 import { FormsModule } from "@angular/forms";
+import { CollapseModule } from "ngx-bootstrap/collapse";
+import { TooltipModule } from "ngx-bootstrap/tooltip";
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { FormsModule } from "@angular/forms";
     RouterModule,
     RatingModule,
     FormsModule,
+    CollapseModule,
+    TooltipModule
   ],
   exports: [SerieslistComponent, EpisodesComponent, SeriedetailComponent],
 })
